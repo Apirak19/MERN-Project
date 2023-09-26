@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-ul li {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  transition: all 100ms ease-in;
+}
+.nav-ul li:hover {
+  transform: scale(1.2);
+  background-color: aquamarine;
+}
+.nav-ul li a {
+  text-decoration: none;
+  font-size: clamp(20px, 1vw, 50px);
+}
+.footer {
+  box-shadow: black 0px 5px 15px;
+}
+.footer h3 {
+  margin: 10px;
+  padding: 5px 10px;
+  font-size: clamp(20px, 1vw, 50px);
+}
+form {
+  background-color: aquamarine;
+  width: clamp(500px, 50vw, 800px);
+  padding: 10px;
+}
+input {
+  width: clamp(400px, 40vw, 700px);
+  margin: 10px;
+}
