@@ -9,6 +9,7 @@ const Nav = () => {
         <li><Link to={"/add"}> Add Product </Link></li>
         <li><Link to={"/edit"}> Edit Product </Link></li>
         <li><Link to={"/profile"}> Profile </Link></li>
+        <li><Link to={"/about"}>About</Link></li>
         <li><Link to={"/logout"}> Log out </Link></li>
       </ul>
     </div>
