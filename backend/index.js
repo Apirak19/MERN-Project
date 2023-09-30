@@ -9,6 +9,7 @@ const connectDB = async () => {
       const productSchema = new mongoose.Schema({
          name: String,
          price: Number,
+         type: String,
       });
       const product = mongoose.model("product", productSchema);
       const data = await product.find();
