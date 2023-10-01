@@ -1,32 +1,16 @@
 const express = require("express");
-const mongoose = require("mongoose");
-
+require("./db/config");
+const User = require('./db/user')
 const app = express();
 
-const connectDB = async () => {
-   try {  
-      mongoose.connect("mongodb://localhost:27017/MERN");
-      const productSchema = new mongoose.Schema({
-         name: String,
-         price: Number,
-         type: String,
-      });
-      const product = mongoose.model("product", productSchema);
-      const data = await product.find();
-      console.warn(data);
-   }
-  catch (error) {
-console.error("Error:", error);
-}
-};
-
-connectDB();
+app.post("/register", (req, res) => {
+   res.send("api in progeress...")
+})
 
 app.listen(5000, (err) => {
-   if (err) {
-      console.error("There is an error");
-   }
-   else {
-      console.log("server started on port 5000");
-   }
+  if (err) {
+    console.error("There is an error");
+  } else {
+    console.log("server started on port 5000");
+  }
 });
