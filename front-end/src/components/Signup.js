@@ -31,7 +31,9 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button className="bg-slate-200 px-4 py-2 m-2 rounded-xl">
+        <button type="submit" className="bg-slate-200 px-4 py-2 m-2 rounded-xl" onClick={() => {
+          
+        }}>
           Sign up
         </button>
       </form>
