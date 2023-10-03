@@ -5,12 +5,17 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const collectData = async () => {
-    console.warn(name, email, password);
-    const data = await fetch("http://localhost:5000/register", {
-      method: 'post',
-      body:JSON.stringify({name, email, password})
-    })
-  }
+    console.warn("collected data:",name, email, password);
+    let data = await fetch("http://localhost:5000/register", {
+      method: "post",
+      body: JSON.stringify({ name, email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    let result = await data.json();
+    console.warn("result: ", result);
+  };
   return (
     <div>
       <form className="flex flex-col justify-center items-center rounded-xl">
@@ -36,7 +41,11 @@ const Signup = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button type="button" onClick={collectData} className="bg-slate-200 px-4 py-2 m-2 rounded-xl">
+        <button
+          type="button"
+          onClick={collectData}
+          className="bg-slate-200 px-4 py-2 m-2 rounded-xl"
+        >
           Sign up
         </button>
       </form>
