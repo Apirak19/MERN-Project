@@ -15,7 +15,7 @@ function App() {
           <Route path="/edit" element={<h1 className="text-2xl">Edit Product</h1> } />
           <Route path="/profile" element={<h1 className="text-2xl">Profile</h1> } />
           <Route path="/logout" element={<h1 className="text-2xl">Logout</h1> } />
-          <Route path="/signup" element={ <Signup/>} />
+          <Route path="/register" element={ <Signup/>} />
         </Routes>
       </BrowserRouter>
       <Footer/>
