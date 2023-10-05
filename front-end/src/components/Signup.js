@@ -40,6 +40,7 @@ const Signup = () => {
       <h1>{name}</h1>
       <h1>{email}</h1>
       <h1>{password}</h1>
+      <h1>This is the information</h1>
     </div>
   );
 };
