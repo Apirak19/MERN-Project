@@ -10,15 +10,28 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<h1 className="text-2xl">Products</h1> } />
-          <Route path="/add" element={<h1 className="text-2xl">Add Product</h1> } />
-          <Route path="/edit" element={<h1 className="text-2xl">Edit Product</h1> } />
-          <Route path="/profile" element={<h1 className="text-2xl">Profile</h1> } />
-          <Route path="/logout" element={<h1 className="text-2xl">Logout</h1> } />
-          <Route path="/register" element={ <Signup/>} />
+          <Route path="/" element={<h1 className="text-2xl">Products</h1>} />
+          <Route
+            path="/add"
+            element={<h1 className="text-2xl">Add Product</h1>}
+          />
+          <Route
+            path="/edit"
+            element={<h1 className="text-2xl">Edit Product</h1>}
+          />
+          <Route
+            path="/profile"
+            element={<h1 className="text-2xl">Profile</h1>}
+          />
+          <Route
+            path="/logout"
+            element={<h1 className="text-2xl">Logout</h1>}
+          />
+          <Route path="/register" element={<Signup />} />
         </Routes>
       </BrowserRouter>
-      <Footer/>
+      <h1>something before footer</h1>
+      <Footer />
     </div>
   );
 }
