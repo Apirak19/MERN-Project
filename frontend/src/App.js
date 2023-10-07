@@ -30,7 +30,6 @@ function App() {
           <Route path="/register" element={<Signup />} />
         </Routes>
       </BrowserRouter>
-      <h1>something before footer</h1>
       <Footer />
     </div>
   );
