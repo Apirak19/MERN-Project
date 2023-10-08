@@ -30,6 +30,7 @@ function App() {
           <Route path="/register" element={<Signup />} />
         </Routes>
       </BrowserRouter>
+      <h4>Before something happends</h4>
       <Footer />
     </div>
   );
