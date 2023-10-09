@@ -3,6 +3,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Signup from "./components/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PrivateComponent from "./components/PrivateComponent";
 
 function App() {
   return (
@@ -10,27 +11,28 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<h1 className="text-2xl">Products</h1>} />
-          <Route
-            path="/add"
-            element={<h1 className="text-2xl">Add Product</h1>}
-          />
-          <Route
-            path="/edit"
-            element={<h1 className="text-2xl">Edit Product</h1>}
-          />
-          <Route
-            path="/profile"
-            element={<h1 className="text-2xl">Profile</h1>}
-          />
-          <Route
-            path="/logout"
-            element={<h1 className="text-2xl">Logout</h1>}
-          />
+          <Route path="" element={<PrivateComponent />}>
+            <Route path="/" element={<h1 className="text-2xl">Products</h1>} />
+            <Route
+              path="/add"
+              element={<h1 className="text-2xl">Add Product</h1>}
+            />
+            <Route
+              path="/edit"
+              element={<h1 className="text-2xl">Edit Product</h1>}
+            />
+            <Route
+              path="/profile"
+              element={<h1 className="text-2xl">Profile</h1>}
+            />
+            <Route
+              path="/logout"
+              element={<h1 className="text-2xl">Logout</h1>}
+            />
+          </Route>
           <Route path="/register" element={<Signup />} />
         </Routes>
       </BrowserRouter>
-      <h4>Before something happends</h4>
       <Footer />
     </div>
   );
