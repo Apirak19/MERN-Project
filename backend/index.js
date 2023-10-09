@@ -14,8 +14,20 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
   let user = new User(req.body);
   let result = await user.save();
+  result = result.toObject()
   res.send(result);
 });
+
+app.post("/login", async (req, res) => {
+  if (req.body.email && req.body.password) {
+    let user = await User.findOne(req.body).select("password")
+    if (user) {
+      res.send(req.user)
+    } else {
+      res.send({result : "not found"})
+    }
+  }
+})
 
 app.listen(5000, (err) => {
   if (err) {

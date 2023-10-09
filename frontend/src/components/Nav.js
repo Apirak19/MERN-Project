@@ -5,6 +5,7 @@ const Nav = () => {
   const auth = localStorage.getItem('user')
   const logout = () => {
     alert("log out successfully");
+    localStorage.clear()
   };
   return (
     <div>
@@ -26,9 +27,7 @@ const Nav = () => {
             <Link onClick={logout} to={"/register"}>
               Log out
             </Link>
-          ) : (
-            <Link to={"/register"}> Sign up </Link>
-          )}
+          ) : ""}
         </li>
       </ul>
     </div>
