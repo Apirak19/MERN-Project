@@ -1,12 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
+import { UseAuthContext} from "../contexts/Context";
 
 const Nav = () => {
-  const auth = localStorage.getItem('user')
-  const logout = () => {
-    alert("log out successfully");
-    localStorage.clear()
-  };
+  const { handleLogout } = UseAuthContext()
+  const auth = localStorage.getItem("user")
   return (
     <div>
       <ul className="nav-ul flex justify-center shadow-xl">
@@ -23,7 +21,7 @@ const Nav = () => {
           <Link to={"/profile"}> Profile </Link>
         </li>
         <li>
-          <Link onClick={logout} to={"/register"} className={`${auth? 'inline-block' : 'hidden'}`} >
+          <Link onClick={handleLogout} to={"/register"} className={`${auth ? 'inline-block' : 'hidden'}`} >
               Log out
             </Link>
         </li>

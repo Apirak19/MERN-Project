@@ -1,31 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UseAuthContext } from "../contexts/Context";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-   const [data, setData] = useState(null);
+  const auth = localStorage.getItem("user");
+  const { handleLogin, setEmail, email, setPassword, password, data, setData } =
+    UseAuthContext();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const auth = localStorage.getItem("user");
     if (auth) {
       navigate("/");
     }
   });
 
-  const handleLogin = async () => {
-    let result = await fetch("http://localhost:5000/login", {
-      method: "post",
-      body: JSON.stringify({ email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    result = await result.json();
-    setData(result);
-    console.log(result);
-  };
   return (
     <div>
       <form className="flex flex-col justify-center items-center rounded-xl">
@@ -57,7 +45,7 @@ const Login = () => {
         </h4>
       </form>
       <h1>This is the information</h1>
-      <h4>{data ? JSON.stringify(data) : 'Nothing recieved'}</h4>
+      <h4>{data ? JSON.stringify(data) : "Nothing recieved"}</h4>
     </div>
   );
 };

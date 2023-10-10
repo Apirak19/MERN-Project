@@ -1,34 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UseAuthContext } from "../contexts/Context";
 
 const Signup = () => {
+  const auth = localStorage.getItem("user");
+  const { setEmail, email, setPassword, password, data, setData } =
+    UseAuthContext();
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [data, setData] = useState(null)
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    const auth = localStorage.getItem('user');
     if (auth) {
-      navigate('/')
+      navigate("/");
     }
-  })
+  });
 
   const collectData = async () => {
     console.warn("collected data:", name, email, password);
-    let data = await fetch("http://localhost:5000/register", {
-      method: "post",
-      body: JSON.stringify({ name, email, password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    let result = await data.json();
-    console.warn("result: ", result);
-    setData(result)
-    localStorage.setItem("user", JSON.stringify(result));
-    navigate("/");
+    if (name && email && password) {
+      let data = await fetch("http://localhost:5000/register", {
+        method: "post",
+        body: JSON.stringify({ name, email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      let result = await data.json();
+      console.warn("result: ", result);
+      setData(result);
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/");
+    } else {
+      alert("fill all")
+    }
   };
   return (
     <div>
@@ -63,7 +68,9 @@ const Signup = () => {
           Sign up
         </button>
         <h4>Already have an account?</h4>
-        <h4 className="transition-transform transform hover:scale-105 font-bold text-orange-500"><a href="/login" >Login</a></h4>
+        <h4 className="transition-transform transform hover:scale-105 font-bold text-orange-500">
+          <a href="/login">Login</a>
+        </h4>
       </form>
       <h1>This is the information</h1>
     </div>

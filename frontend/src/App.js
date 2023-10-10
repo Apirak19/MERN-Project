@@ -5,15 +5,18 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateComponent from "./components/PrivateComponent";
+import { AuthContextProvider, UseAuthContext } from "./contexts/Context";
+import Products from "./components/Products";
 
 function App() {
   return (
+    <AuthContextProvider>
     <div className="App">
       <BrowserRouter>
         <Nav />
         <Routes>
           <Route path="" element={<PrivateComponent />}>
-            <Route path="/" element={<h1 className="text-2xl">Products</h1>} />
+            <Route path="/" element={<Products/>} />
             <Route
               path="/add"
               element={<h1 className="text-2xl">Add Product</h1>}
@@ -36,7 +39,8 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
-    </div>
+      </div>
+      </AuthContextProvider>
   );
 }
 
