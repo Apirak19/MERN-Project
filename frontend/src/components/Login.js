@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+   const [data, setData] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,15 +14,17 @@ const Login = () => {
     }
   });
 
-   const handleLogin = async () => {
-      let result = await fetch("http://localhost:5000/login", {
-         method: 'post',
-         body: JSON.stringify({ email, password }),
-         headers: {
-            'Content-Type': "application/json"
-         }
-     }) 
-     result = await result.json()
+  const handleLogin = async () => {
+    let result = await fetch("http://localhost:5000/login", {
+      method: "post",
+      body: JSON.stringify({ email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
+    setData(result);
+    console.log(result);
   };
   return (
     <div>
@@ -43,15 +46,18 @@ const Login = () => {
         />
         <button
           type="button"
-          onClick={()=>{}}
+          onClick={handleLogin}
           className="bg-slate-200 px-4 py-2 m-2 rounded-xl"
         >
           Login
         </button>
+        <h4>Don't have an account?</h4>
+        <h4 className="transition-transform transform hover:scale-105 font-bold text-orange-500">
+          <a href="/register">Sign up</a>
+        </h4>
       </form>
-      <h1>{email}</h1>
-      <h1>{password}</h1>
       <h1>This is the information</h1>
+      <h4>{data ? JSON.stringify(data) : 'Nothing recieved'}</h4>
     </div>
   );
 };

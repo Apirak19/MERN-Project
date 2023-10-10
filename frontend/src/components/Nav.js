@@ -23,14 +23,9 @@ const Nav = () => {
           <Link to={"/profile"}> Profile </Link>
         </li>
         <li>
-          {auth ? (
-            <Link onClick={logout} to={"/register"}>
+          <Link onClick={logout} to={"/register"} className={`${auth? 'inline-block' : 'hidden'}`} >
               Log out
             </Link>
-          ) : ""}
-        </li>
-        <li>
-          <Link to={"/login"}>Login</Link>
         </li>
       </ul>
     </div>

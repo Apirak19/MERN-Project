@@ -5,6 +5,7 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [data, setData] = useState(null)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const Signup = () => {
     });
     let result = await data.json();
     console.warn("result: ", result);
+    setData(result)
     localStorage.setItem("user", JSON.stringify(result));
     navigate("/");
   };
@@ -60,10 +62,9 @@ const Signup = () => {
         >
           Sign up
         </button>
+        <h4>Already have an account?</h4>
+        <h4 className="transition-transform transform hover:scale-105 font-bold text-orange-500"><a href="/login" >Login</a></h4>
       </form>
-      <h1>{name}</h1>
-      <h1>{email}</h1>
-      <h1>{password}</h1>
       <h1>This is the information</h1>
     </div>
   );
