@@ -11,7 +11,7 @@ import Products from "./components/Products";
 function App() {
   return (
     <AuthContextProvider>
-    <div className="App">
+    <div className="App min-h-full">
       <BrowserRouter>
         <Nav />
         <Routes>

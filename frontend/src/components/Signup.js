@@ -14,10 +14,9 @@ const Signup = () => {
     if (auth) {
       navigate("/");
     }
-  });
+  }, [auth, navigate]);
 
   const collectData = async () => {
-    console.warn("collected data:", name, email, password);
     if (name && email && password) {
       let data = await fetch("http://localhost:5000/register", {
         method: "post",
@@ -27,9 +26,10 @@ const Signup = () => {
         },
       });
       let result = await data.json();
-      console.warn("result: ", result);
       setData(result);
       localStorage.setItem("user", JSON.stringify(result));
+      // alert("collected data:", name, email, password);
+      // alert("result: ", JSON.stringify(result));
       navigate("/");
     } else {
       alert("fill all")

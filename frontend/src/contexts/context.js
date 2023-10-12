@@ -16,15 +16,14 @@ const AuthContextProvider = ({ children }) => {
   const handleLogin = async () => {
     let result = await fetch("http://localhost:5000/login", {
       method: "post",
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ name, email, password }),
       headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    result = await result.json();
-    setData(result);
-    console.log(result);
-    localStorage.setItem("user", JSON.stringify(result));
+        "Content-Type": "application/json"
+      }
+    })
+    result = await result.json()
+    setData(result)
+    localStorage.setItem("user", JSON.stringify(result))
   };
 
   const authContextValue = {
