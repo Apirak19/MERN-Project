@@ -5,7 +5,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateComponent from "./components/PrivateComponent";
-import { AuthContextProvider } from "./contexts/Context";
+import { AuthContextProvider } from "./contexts/context";
 import Products from "./components/Products";
 
 function App() {

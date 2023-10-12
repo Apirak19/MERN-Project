@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
-import { UseAuthContext} from "../contexts/Context";
+import { UseAuthContext} from "../contexts/context";
 
 const Nav = () => {
   const { handleLogout } = UseAuthContext()

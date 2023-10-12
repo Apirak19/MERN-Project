@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UseAuthContext } from "../contexts/Context";
+import { UseAuthContext } from "../contexts/context";
 
 const Login = () => {
   const auth = localStorage.getItem("user");

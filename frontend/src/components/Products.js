@@ -1,5 +1,5 @@
 import React from "react";
-import { UseAuthContext } from "../contexts/Context";
+import { UseAuthContext } from "../contexts/context";
 
 const Products = () => {
   const { name, email } = UseAuthContext();
