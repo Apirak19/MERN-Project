@@ -44,8 +44,6 @@ const Login = () => {
           <a href="/register">Sign up</a>
         </h4>
       </form>
-      <h1>This is the information</h1>
-      <h4>{data ? JSON.stringify(data) : "Nothing recieved"}</h4>
     </div>
   );
 };
