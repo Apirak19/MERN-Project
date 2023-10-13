@@ -28,11 +28,9 @@ const Signup = () => {
       let result = await data.json();
       setData(result);
       localStorage.setItem("user", JSON.stringify(result));
-      // alert("collected data:", name, email, password);
-      // alert("result: ", JSON.stringify(result));
       navigate("/");
     } else {
-      alert("fill all")
+      alert("Please fill in the required data")
     }
   };
   return (
