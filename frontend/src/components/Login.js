@@ -12,7 +12,7 @@ const Login = () => {
     if (auth) {
       navigate("/");
     }
-  });
+  }, []);
 
   return (
     <div>
