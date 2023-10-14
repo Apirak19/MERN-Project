@@ -4,8 +4,7 @@ import { UseAuthContext } from "../contexts/context";
 
 const Signup = () => {
   const auth = localStorage.getItem("user");
-  const { setEmail, email, setPassword, password, data, setData } =
-    UseAuthContext();
+  const { setEmail, email, setPassword, password, setData } = UseAuthContext();
   const [name, setName] = useState("");
 
   const navigate = useNavigate();
@@ -30,11 +29,11 @@ const Signup = () => {
       localStorage.setItem("user", JSON.stringify(result));
       navigate("/");
     } else {
-      alert("Please fill in the required data")
+      alert("Please fill in the required data");
     }
   };
   return (
-    <div>
+    <div className="min-h-screen">
       <form className="flex flex-col justify-center items-center rounded-xl">
         <h1 className="text-2xl font-bold mb-2">Register</h1>
         <input
@@ -70,7 +69,6 @@ const Signup = () => {
           <a href="/login">Login</a>
         </h4>
       </form>
-      <h1>This is the information</h1>
     </div>
   );
 };

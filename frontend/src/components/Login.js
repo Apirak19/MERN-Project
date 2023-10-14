@@ -15,7 +15,7 @@ const Login = () => {
   }, []);
 
   return (
-    <div>
+    <div className="min-h-screen">
       <form className="flex flex-col justify-center items-center rounded-xl">
         <h1 className="text-2xl font-bold mb-2">Login</h1>
         <input
