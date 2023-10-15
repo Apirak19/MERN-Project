@@ -8,15 +8,22 @@ const Login = () => {
     UseAuthContext();
   const navigate = useNavigate();
   const handleLogin = async () => {
+    console.warn(email, password);
     let result = await fetch("http://localhost:5000/login", {
       method: "post",
-      body: JSON.stringify({email, password}),
+      body:JSON.stringify({email, password}),
       headers: {
         "Content-Type": "application/json"
       }
     })
-    result = await result.JSON()
-    localStorage.setItem("user")
+    result = await result.json()
+    console.warn(result);
+    if (result.name) {
+      localStorage.setItem("user", JSON.stringify(result))
+      navigate('/')
+    } else {
+      alert("please enter correct data")
+    }
   }
   
 
@@ -40,7 +47,7 @@ const Login = () => {
         />
         <button
           type="button"
-          onClick={()=>{}}
+          onClick={handleLogin}
           className="bg-slate-200 px-4 py-2 m-2 rounded-xl"
         >
           Login
