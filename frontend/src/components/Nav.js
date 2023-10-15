@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { UseAuthContext} from "../contexts/context";
 
 const Nav = () => {
-  const { handleLogout } = UseAuthContext()
+  const handleLogout = async () => {
+    localStorage.clear()
+    alert("Log out successfully")
+  }
   const auth = localStorage.getItem("user")
   return (
     <div>

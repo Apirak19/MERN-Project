@@ -4,15 +4,21 @@ import { UseAuthContext } from "../contexts/context";
 
 const Login = () => {
   const auth = localStorage.getItem("user");
-  const { handleLogin, setEmail, email, setPassword, password, data, setData } =
+  const {setEmail, email, setPassword, password } =
     UseAuthContext();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (auth) {
-      navigate("/");
-    }
-  }, []);
+  const handleLogin = async () => {
+    let result = await fetch("http://localhost:5000/login", {
+      method: "post",
+      body: JSON.stringify({email, password}),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    result = await result.JSON()
+    localStorage.setItem("user")
+  }
+  
 
   return (
     <div className="min-h-screen">
@@ -34,7 +40,7 @@ const Login = () => {
         />
         <button
           type="button"
-          onClick={handleLogin}
+          onClick={()=>{}}
           className="bg-slate-200 px-4 py-2 m-2 rounded-xl"
         >
           Login

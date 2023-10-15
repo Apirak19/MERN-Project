@@ -1,5 +1,4 @@
 import React, { useState, createContext, useContext } from "react";
-
 const AuthContext = createContext();
 
 const AuthContextProvider = ({ children }) => {
@@ -22,8 +21,12 @@ const AuthContextProvider = ({ children }) => {
       }
     })
     result = await result.json()
-    setData(result)
-    localStorage.setItem("user", JSON.stringify(result))
+    if (result.name) {
+      setData(result)
+      localStorage.setItem("user", JSON.stringify(result))
+    } else {
+      alert("Enter correct account email or password")
+    }
   };
 
   const authContextValue = {
