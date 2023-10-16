@@ -6,6 +6,7 @@ const AuthContextProvider = ({ children }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogout = async () => {
     alert("log out successfully");
@@ -17,15 +18,15 @@ const AuthContextProvider = ({ children }) => {
       method: "post",
       body: JSON.stringify({ name, email, password }),
       headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    result = await result.json()
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
     if (result.name) {
-      setData(result)
-      localStorage.setItem("user", JSON.stringify(result))
+      setData(result);
+      localStorage.setItem("user", JSON.stringify(result));
     } else {
-      alert("Enter correct account email or password")
+      alert("Enter correct account email or password");
     }
   };
 
@@ -38,6 +39,8 @@ const AuthContextProvider = ({ children }) => {
     setEmail,
     password,
     setPassword,
+    loading,
+    setLoading,
     handleLogout,
     handleLogin,
   };

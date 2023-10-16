@@ -4,28 +4,31 @@ import { UseAuthContext } from "../contexts/context";
 
 const Login = () => {
   const auth = localStorage.getItem("user");
-  const {setEmail, email, setPassword, password } =
+  const { setEmail, email, setPassword, password, loading, setLoading } =
     UseAuthContext();
   const navigate = useNavigate();
   const handleLogin = async () => {
-    console.warn(email, password);
-    let result = await fetch("http://localhost:5000/login", {
-      method: "post",
-      body:JSON.stringify({email, password}),
-      headers: {
-        "Content-Type": "application/json"
+    setLoading(true);
+    try {
+      let result = await fetch("http://localhost:5000/login", {
+        method: "post",
+        body: JSON.stringify({ email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      setLoading(true);
+      result = await result.json();
+      if (result.name) {
+        localStorage.setItem("user", JSON.stringify(result));
+        navigate("/");
       }
-    })
-    result = await result.json()
-    console.warn(result);
-    if (result.name) {
-      localStorage.setItem("user", JSON.stringify(result))
-      navigate('/')
-    } else {
-      alert("please enter correct data")
+    } catch (err) {
+      alert("please enter correct data");
+    } finally {
+      setLoading(false)
     }
-  }
-  
+  };
 
   return (
     <div className="min-h-screen">
@@ -50,7 +53,7 @@ const Login = () => {
           onClick={handleLogin}
           className="bg-slate-200 px-4 py-2 m-2 rounded-xl"
         >
-          Login
+          {loading ? "Logging in" : "Log in"}
         </button>
         <h4>Don't have an account?</h4>
         <h4 className="transition-transform transform hover:scale-105 font-bold text-orange-500">
