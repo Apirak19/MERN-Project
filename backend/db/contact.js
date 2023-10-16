@@ -2,9 +2,8 @@ const mongoose = require('mongoose')
 
 const contactSchema = new mongoose.Schema({
    name: String,
-   phone: String,
-   email: String,
-   address: String
+   Tel: String,
+   email: String
 })
 
-module.exports = mongoose.Schema("contacts", contactSchema)
+module.exports = mongoose.model("contacts", contactSchema)

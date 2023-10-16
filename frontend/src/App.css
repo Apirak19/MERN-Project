@@ -8,12 +8,21 @@ body{
   height: max-content;
 }
 
+.logo{
+  display: inline-block;
+  /* border: 1px solid black; */
+  font-size: clamp(20px, 1vw, 50px);
+}
+
+.logo:hover{
+  cursor: pointer;
+}
+
 .nav-ul li {
   display: inline-block;
-  margin: 10px;
-  padding: 5px 10px;
+  margin: 0.75rem;
+  padding: 0.5rem 1rem;
   border-radius: 10px;
-  /* border: 1px solid black; */
   transition: all 100ms ease-in;
 }
 .nav-ul li:hover {
