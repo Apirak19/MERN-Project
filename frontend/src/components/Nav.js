@@ -15,9 +15,9 @@ const Nav = () => {
     }
   }, []);
   return (
-    <div>
+    <div className="nav">
      {auth ? (
-        <div className="flex justify-between shadow-xl ">
+        <div className="flex justify-between shadow-xl">
         <div className="bg-blue-600 text-white rounded-full m-3 px-5 py-2 transform transition-all duration-100 ease-in hover:scale-110">
         <h1 className="logo font-bold ">LOGO</h1>
         </div>

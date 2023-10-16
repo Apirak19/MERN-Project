@@ -26,23 +26,21 @@ const Login = () => {
     } catch (err) {
       alert("please enter correct data");
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="page">
       <form className="flex flex-col justify-center items-center rounded-xl">
-        <h1 className="text-2xl font-bold mb-2">Login</h1>
+        <h1 className="title">Login</h1>
         <input
-          className="input-box"
           type="text"
           placeholder="Enter your Email"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />
         <input
-          className="input-box"
           type="text"
           placeholder="Enter your Password"
           onChange={(e) => setPassword(e.target.value)}

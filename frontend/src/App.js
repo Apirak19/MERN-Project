@@ -12,9 +12,9 @@ import AddProduct from "./components/AddProduct";
 function App() {
   return (
     <AuthContextProvider>
-      <div className="App min-h-full">
+      <div>
         <BrowserRouter>
-          <Nav />
+          <Nav/>
           <Routes>
             <Route path="" element={<PrivateComponent />}>
               <Route path="/" element={<Products />} />

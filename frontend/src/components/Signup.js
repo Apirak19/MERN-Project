@@ -33,9 +33,9 @@ const Signup = () => {
     }
   };
   return (
-    <div className="min-h-screen">
-      <form className="flex flex-col justify-center items-center rounded-xl">
-        <h1 className="text-2xl font-bold mb-2">Register</h1>
+    <div className="page">
+      <form className="flex flex-col justify-center items-center">
+        <h1 className="title">Register</h1>
         <input
           className="input-box"
           type="text"
