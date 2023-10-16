@@ -47,9 +47,15 @@ form {
   padding: 20px;
   margin: 50px auto;
 }
-.input-box {
+input{
+  display: inline-block;
   width: clamp(400px, 40vw, 700px);
   margin: 5px;
   padding: 5px 10px;
   border-radius: 10px;
+}
+
+label{
+  font-size: clamp(20px, 1vw, 50px);
+  display: inline-block;
 }
