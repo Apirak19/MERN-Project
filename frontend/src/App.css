@@ -24,18 +24,18 @@
 .authPage{
   height: calc(100vh - 110px);
   box-sizing: border-box;
-border: solid 1px black;
+/* border: solid 1px black; */
 }
 
 .page{
   height: calc(100vh - 110px);
   box-sizing: border-box;
-border: solid 1px black;
+/* border: solid 1px black; */
   
 }
 
 .nav{
-  height: 70px;
+  height: 75px;
 }
 
 .nav-ul li {
@@ -77,11 +77,12 @@ input{
 label{
   font-size: clamp(20px, 1vw, 50px);
   display: inline-block;
+  color: white;
 }
 .addProductForm{
   background-color: #348feb;
-  width: clamp(500px, 40vw, 600px);
+  width: clamp(500px, 50vw, 600px);
   padding: 20px;
-  margin: 0px auto;
+  margin: 5px auto;
   border-radius: 0.75rem;
 }

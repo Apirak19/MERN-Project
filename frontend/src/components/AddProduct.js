@@ -1,48 +1,49 @@
 import React from "react";
 
 const AddProduct = () => {
+  console.warn();
   return (
-    <div className="authPage">
+    <div className="authPage ">
       <h1 className="title">Add Product</h1>
       <form action="" className="addProductForm">
-        <div>
-          <label htmlFor="productName">Product Name</label>
+        <div className="flex justify-between">
+          <label htmlFor="productName">Name</label>
           <input
             type="text"
             id="productName"
             placeholder="Enter name of the product"
           />
         </div>
-        <div>
-          <label htmlFor="productName">Product Name</label>
+        <div className="flex justify-between">
+          <label htmlFor="productPrice">Price</label>
           <input
             type="text"
-            id="productName"
-            placeholder="Enter name of the product"
+            id="productPrice"
+            placeholder="Enter price of the product"
           />
         </div>
-        <div>
-          <label htmlFor="productName">Product Name</label>
+        <div className="flex justify-between">
+          <label htmlFor="productCategory">Category</label>
           <input
             type="text"
-            id="productName"
-            placeholder="Enter name of the product"
+            id="productCategory"
+            placeholder="Enter category of the product"
           />
         </div>
-        <div>
-          <label htmlFor="productName">Product Name</label>
+        <div className="flex justify-between">
+          <label htmlFor="userID">UserID</label>
           <input
             type="text"
-            id="productName"
-            placeholder="Enter name of the product"
+            id="userID"
+            placeholder="Enter userID"
           />
         </div>
-        <div>
-          <label htmlFor="productName">Product Name</label>
+        <div className="flex justify-between">
+          <label htmlFor="companyName">Company</label>
           <input
             type="text"
-            id="productName"
-            placeholder="Enter name of the product"
+            id="companyName"
+            placeholder="Enter name of the company"
           />
         </div>
       </form>
