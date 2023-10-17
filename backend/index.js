@@ -26,6 +26,15 @@ app.post("/add", async (req, res) => {
   res.send(result)
 })
 
+app.get("/products", async (req, res) => {
+  let products = await Product.find()
+  if (products.length > 0) {
+    res.send(products)
+  } else {
+    res.send("nothing found")
+  }
+})
+
 app.post("/login", async (req, res) => {
   let user = await User.findOne(req.body).select("-password")
   if (req.body.email && req.body.password) {

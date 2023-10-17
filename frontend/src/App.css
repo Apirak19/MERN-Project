@@ -94,3 +94,15 @@ button{
   margin: 0.5rem;
   border: 1px solid black;
 }
+.products-list{
+  text-align: center;
+  padding: 5px;
+  margin-top: 20px;
+}
+.products-list ul li{
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #348feb;
+  text-align: center;
+  width: 200px
+}

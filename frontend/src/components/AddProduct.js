@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
-  const [pName, setPName] = useState("");
+  const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [category, setCateory] = useState("");
   const [company, setCompany] = useState("");
   const userID = JSON.parse(localStorage.getItem("user"))._id;
   const navigate = useNavigate();
   const addProduct = async () => {
-    if (pName && price && category && company) {
+    if (name && price && category && company) {
       let result = await fetch("http://localhost:5000/add", {
         method: "post",
-        body: JSON.stringify({ pName, price, category, userID, company }),
+        body: JSON.stringify({ name, price, category, userID, company }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -35,9 +35,9 @@ const AddProduct = () => {
             type="text"
             id="productName"
             placeholder="Enter name of the product"
-            value={pName}
+            value={name}
             onChange={(e) => {
-              setPName(e.target.value);
+              setName(e.target.value);
             }}
           />
         </div>
