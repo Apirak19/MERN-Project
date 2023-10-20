@@ -25,7 +25,7 @@ const Products = () => {
           <li>Company</li>
         </ul>
         {products.map((item, index) => {
-          return <ul>
+          return <ul key={item.name}>
             <li>{index+1}</li>
             <li>{item.name}</li>
             <li>{item.price}</li>
