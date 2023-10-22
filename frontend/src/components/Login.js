@@ -57,6 +57,7 @@ const Login = () => {
         <h4 className="transition-transform transform hover:scale-105 font-bold text-orange-500">
           <a href="/register">Sign up</a>
           <h4>add somethoing here</h4>
+          <h4>add somethoing here</h4>
         </h4>
       </form>
     </div>
