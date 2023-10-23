@@ -106,3 +106,9 @@ button{
   text-align: center;
   width: 200px
 }
+.productDel{
+  background-color: #348feb;
+  color: white;
+  margin: 0;
+  padding: 0 10px;
+}

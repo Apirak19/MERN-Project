@@ -23,6 +23,7 @@ const Products = () => {
           <li>Price</li>
           <li>Category</li>
           <li>Company</li>
+          <li>operation</li>
         </ul>
         {products.map((item, index) => {
           return <ul key={item.name}>
@@ -31,6 +32,7 @@ const Products = () => {
             <li>{item.price}</li>
             <li>{item.category}</li>
             <li>{item.company}</li>
+            <li><button className="productDel">delete</button></li>
           </ul>;
         })}
       </div>
