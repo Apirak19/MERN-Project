@@ -44,6 +44,11 @@ app.post("/login", async (req, res) => {
   }
 })
 
+app.delete("/product/:id", async (req, res) => {
+  // const result = await Product.deleteOne({_id:req.params.id})
+  res.send(req.params.id)
+})
+
 app.listen(5000, (err) => {
   if (err) {
     console.error("There is an error");

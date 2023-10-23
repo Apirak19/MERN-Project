@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { UseAuthContext } from "../contexts/context";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
