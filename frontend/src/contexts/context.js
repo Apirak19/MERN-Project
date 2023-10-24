@@ -7,6 +7,7 @@ const AuthContextProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [hidden, setHidden] = useState(true)
 
   const handleLogout = async () => {
     alert("log out successfully");
@@ -31,6 +32,8 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const authContextValue = {
+    hidden,
+    setHidden,
     data,
     setData,
     name,

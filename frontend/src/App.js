@@ -14,14 +14,11 @@ function App() {
     <AuthContextProvider>
       <div>
         <BrowserRouter>
-          <Nav/>
+          <Nav />
           <Routes>
             <Route path="" element={<PrivateComponent />}>
               <Route path="/" element={<Products />} />
-              <Route
-                path="/add"
-                element={<AddProduct />}
-              />
+              <Route path="/add" element={<AddProduct />} />
               <Route
                 path="/edit"
                 element={<h1 className="text-2xl">Edit Product</h1>}
