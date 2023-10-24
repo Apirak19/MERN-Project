@@ -165,16 +165,30 @@ button {
 }
 @media (max-width: 735px){
   .nav{
-    position: fixed;
-    background-color: white;
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: pink;
     flex-direction: column;
     height: 100vh;
     width: 500px;
     z-index: 1000;
+    border-radius: 20px;
+    transition: all 500ms ease-in;
   }
   .nav-hidden{
-    display: none;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -500px;
+    background-color: pink;
+    flex-direction: column;
+    height: 100vh;
+    width: 500px;
+    z-index: 1000;
+    border-radius: 20px;
+    transition: all 500ms ease-in;
   }
   .nav-body{
     display: flex;
@@ -193,7 +207,7 @@ button {
   }
   .nav-logo:hover{
     text-align: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     transform: scale(1.01);
     cursor: pointer;
   }
