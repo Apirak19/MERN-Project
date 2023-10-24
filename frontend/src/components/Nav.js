@@ -16,7 +16,7 @@ const Nav = () => {
     }
   }, []);
   return (
-      hidden ? (<button onClick={()=>setHidden(false)}>O</button>)
+      hidden ? (<button onClick={()=>setHidden(false)}>Obutton need to be hide</button>)
         : <div className={` ${hidden ? 'nav-hidden': 'nav'} shadow-xl`}>
         <button className="w-3 absolute right-0 flex justify-center" onClick={()=>{setHidden(true)}}>X</button>
         {auth ? (
