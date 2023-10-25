@@ -21,20 +21,20 @@ const Nav = () => {
     }
   }, []);
   return (
-    <div className="navbar">
+    <div className="navbar bg-yellow-600">
       {auth && screen <= 821 && (
-        <>
+        <div className="flex justify-center fixed w-screen bg-blue-400">
           <button
             onClick={() => {
               setNavHidden(!navHidden);
               setButtonHidden(!buttonHidden)
             }}
-            className={`${buttonHidden ? '' : 'hidden'}`}
+            className={`fixed left-0 top-0 ${buttonHidden ? '' : 'hidden'}`}
           >
             Menu
           </button>
           <div
-            className={`nav-body bg-blue-600 ${navHidden ? "fixed -left-[1200px]" : "flex justify-between"}`}
+            className={`bg-blue-600 ${navHidden ? "absolute " : "flex flex-col justify-between"}`}
           >
             <button className={`absolute right-0 ${buttonHidden ? 'hidden' : ''}`} onClick={() => {
               setButtonHidden(!buttonHidden)
@@ -42,7 +42,7 @@ const Nav = () => {
             <div className="nav-logo bg-blue-600 text-white rounded-full m-3 px-5 py-2">
               <h1 className="logo font-bold ">{screen}</h1>
             </div>
-            <ul className="nav-ul flex justify-center">
+            <ul className="nav-ul flex flex-col absolute item-center justify-center bg-purple-500">
               <li>
                 <Link to={"/"}>Product</Link>
               </li>
@@ -62,7 +62,7 @@ const Nav = () => {
               </li>
             </ul>
           </div>
-        </>
+        </div>
       )}
       {auth && screen > 821 && (
         <div className="nav-body flex justify-between ">

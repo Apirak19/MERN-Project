@@ -134,10 +134,6 @@ button {
     transition: all 500ms ease-in;
   }
 
-  .nav-body {
-    margin: 0 auto;
-  }
-
   .nav-logo {
     text-align: center;
     transition: all 100ms ease-in;
