@@ -26,14 +26,19 @@ const Nav = () => {
         <>
           <button
             onClick={() => {
-              setHidden(false);
+              setNavHidden(!navHidden);
+              setButtonHidden(!buttonHidden)
             }}
+            className={`${buttonHidden ? '' : 'hidden'}`}
           >
             Menu
           </button>
           <div
-            className={`nav-body ${hidden ? "hidden" : "flex justify-between"}`}
+            className={`nav-body bg-blue-600 ${navHidden ? "fixed -left-[1200px]" : "flex justify-between"}`}
           >
+            <button className={`absolute right-0 ${buttonHidden ? 'hidden' : ''}`} onClick={() => {
+              setButtonHidden(!buttonHidden)
+            }}>X</button>
             <div className="nav-logo bg-blue-600 text-white rounded-full m-3 px-5 py-2">
               <h1 className="logo font-bold ">{screen}</h1>
             </div>
@@ -87,7 +92,7 @@ const Nav = () => {
       )}
       {!auth && screen <= 821 && (
         <>
-          <div className={`nav-body  ${hidden ? "hidden" : "flex justify-between"}`}>
+          <div className={`nav-body  ${navHidden ? "hidden" : "flex justify-between"}`}>
             <div className="bg-blue-600 text-white rounded-full m-3 px-5 py-2 transform transition-all duration-100 ease-in hover:scale-110">
               <h1 className="logo font-bold ">{screen}</h1>
             </div>
