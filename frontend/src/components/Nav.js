@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
-  const [hidden, setHidden] = useState(false)
+  const [screen, setScreen] = useState(window.innerWidth)
+  const [hidden, setHidden] = useState(true)
   const navigate = useNavigate();
   const auth = localStorage.getItem("user");
   const handleLogout = async () => {
@@ -10,13 +11,16 @@ const Nav = () => {
     alert("Log out successfully");
     navigate("/login");
   };
+  window.addEventListener("resize", () => {
+    setScreen(window.innerWidth)
+  })
   useEffect(() => {
     if (auth) {
       navigate("/");
     }
   }, []);
   return (
-      hidden ? (<button onClick={()=>setHidden(false)}>Obutton need to be hide</button>)
+    hidden ? (<button onClick={() => setHidden(false)}>{screen}</button>)
         : <div className={` ${hidden ? 'nav-hidden': 'nav'} shadow-xl`}>
         <button className="w-3 absolute right-0 flex justify-center" onClick={()=>{setHidden(true)}}>X</button>
         {auth ? (
