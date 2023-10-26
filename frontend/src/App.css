@@ -42,6 +42,7 @@ body {
   .nav {
     height: 80px;
     width: 100%;
+    position: fixed;
   }
   .logo-btn {
     display: none;
@@ -89,7 +90,7 @@ body {
     justify-content: start;
     align-items: center;
     padding-top: 100px;
-    transition: all 100ms ease-in;
+    transition: all 5000ms ease-in;
   }
   .navbar-hide {
     left: -500px;

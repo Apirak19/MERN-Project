@@ -7,6 +7,7 @@ import PrivateComponent from "./PrivateComponent";
 const Nav = () => {
   const [screen, setScreen] = useState(window.innerWidth);
   const [buttonHidden, setButtonHidden] = useState(true);
+  const clearState = ()=> setNavHidden(true)
   const [navHidden, setNavHidden] = useState(true);
   const navigate = useNavigate();
   const auth = localStorage.getItem("user");
@@ -34,7 +35,7 @@ const Nav = () => {
       {auth ? (
         <ul className={`${navHidden? 'navbar-hide' : 'navbar' }`}>
           <li>
-            <Link to="/">
+            <Link to="/" onClick={clearState}>
               <div className="navlist">
                 <div className="icon">o</div>
                 <p className="flex justify-center items-center">Products</p>
@@ -42,7 +43,7 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link to="/add">
+            <Link to="/add" onClick={clearState}>
               <div className="navlist">
                 <div className="icon">o</div>
                 <p className="flex justify-center items-center">Add Product</p>
@@ -50,14 +51,14 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link to="/edit">
+            <Link to="/edit" onClick={clearState}>
               <div className="navlist">
                 <div className="icon">o</div>
                 <p className="flex justify-center items-center">Edit Product</p>
               </div>
             </Link>
           </li>
-          <li onClick={handleLogout}>
+          <li onClick={handleLogout} className="cursor-pointer">
               <div className="navlist">
                 <div className="icon">o</div>
                 <p className="flex justify-center items-center">Logout</p>
