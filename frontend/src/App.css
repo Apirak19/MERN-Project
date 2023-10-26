@@ -4,15 +4,11 @@
   padding: 0;
 }
 
-/* Typography Styles */
-.logo {
-  display: inline-block;
-  font-size: clamp(20px, 1vw, 50px);
+body {
+  font-family: "Courier New", Courier, monospace;
 }
 
-.logo:hover {
-  cursor: pointer;
-}
+/* Typography Styles */
 
 .title {
   font-size: clamp(50px, 2vw, 100px);
@@ -28,31 +24,108 @@
   /* height: calc(100vh - 110px); */
 }
 
-.nav {
-  height: 75px;
+@media (min-width: 770px) {
+  .nav {
+    height: 80px;
+    width: 100%;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+  .logo-btn {
+    display: inline-block;
+    background-color: yellow;
+  }
 }
 
-/* Navbar Styles */
-.navbar {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
+@media (max-width: 769px) {
+  /* Navbar Styles */
+  .nav {
+    height: 80px;
+    width: 100%;
+  }
+  .logo-btn {
+    display: none;
+  }
 
-.nav-ul li {
-  display: inline-block;
-  margin: 0.75rem;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  transition: all 100ms ease-in;
-}
+  .logo {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+  }
+  .menu-btn {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: 10px;
+  }
 
-.nav-ul li:hover {
-  transform: scale(1.2);
-  background-color: aquamarine;
-}
+  .menu {
+    cursor: pointer;
+    background-color: #348feb;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+  }
 
-.nav-ul li a {
-  text-decoration: none;
-  font-size: clamp(20px, 1vw, 50px);
+  .navbar,
+  .navbar-hide {
+    position: fixed;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+    text-align: center;
+    background-color: #348feb;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding-top: 100px;
+    transition: all 100ms ease-in;
+  }
+  .navbar-hide {
+    left: -500px;
+  }
+  .navbar li {
+    width: 200px;
+    height: 50px;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    transition: all 100ms ease-in;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .navbar li:hover {
+    transform: scale(1.05);
+    background-color: gray;
+  }
+  .navlist {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 1rem;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* Footer Styles */
@@ -119,46 +192,6 @@ button {
 
 /* Navigation Styles - Mobile */
 @media (max-width: 821px) {
-  .nav,
-  .nav-hidden {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: pink;
-    flex-direction: column;
-    height: 100vh;
-    width: 500px;
-    z-index: 1000;
-    border-radius: 20px;
-    transition: all 500ms ease-in;
-  }
-
-  .nav-logo {
-    text-align: center;
-    transition: all 100ms ease-in;
-    margin: 0 50px;
-    margin-top: 20px;
-  }
-
-  .nav-logo:hover {
-    text-align: center;
-    transform: scale(1.01);
-    cursor: pointer;
-  }
-
-  .nav-ul li {
-    margin: 10px 50px;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    transition: all 100ms ease-in;
-  }
-
-  .nav-ul li:hover {
-    transform: scale(1);
-    background-color: aquamarine;
-  }
-
   /* Product List Styles - Mobile */
   .products-list-lg {
     display: none;
