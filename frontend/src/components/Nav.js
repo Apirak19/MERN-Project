@@ -21,7 +21,7 @@ const Nav = () => {
     }
   }, []);
   return (
-    <div className="navbar bg-yellow-600">
+    <nav className="navbar bg-yellow-600">
       {auth && screen <= 821 && (
         <div className="flex justify-center fixed w-screen bg-blue-400">
           <button
@@ -122,7 +122,7 @@ const Nav = () => {
           </ul>
         </div>
       )}
-    </div>
+    </nav>
   );
 };
 
