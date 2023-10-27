@@ -7,7 +7,7 @@ import PrivateComponent from "./PrivateComponent";
 const Nav = () => {
   const [screen, setScreen] = useState(window.innerWidth);
   const [buttonHidden, setButtonHidden] = useState(true);
-  const clearState = ()=> setNavHidden(true)
+  const clearState = () => setNavHidden(true);
   const [navHidden, setNavHidden] = useState(true);
   const navigate = useNavigate();
   const auth = localStorage.getItem("user");
@@ -25,15 +25,17 @@ const Nav = () => {
     }
   }, []);
   return (
-    <nav className={`nav`}>
+    <nav className={`${auth ? 'nav' : 'hidden'}`}>
       <div className="logo-btn">
         <span className="logo">o</span>
       </div>
       <div className="menu-btn h-20 inline-block fixed right-0">
-        <span className="menu" onClick={(e)=>setNavHidden(!navHidden)}>Menu</span>
+        <span className="menu" onClick={(e) => setNavHidden(!navHidden)}>
+          Menu
+        </span>
       </div>
       {auth ? (
-        <ul className={`${navHidden? 'navbar-hide' : 'navbar' }`}>
+        <ul className={`navbar ${navHidden ? "navbar-hide" : ""}`}>
           <li>
             <Link to="/" onClick={clearState}>
               <div className="navlist">
@@ -59,14 +61,14 @@ const Nav = () => {
             </Link>
           </li>
           <li onClick={handleLogout} className="cursor-pointer">
-              <div className="navlist">
-                <div className="icon">o</div>
-                <p className="flex justify-center items-center">Logout</p>
-              </div>
+            <div className="navlist">
+              <div className="icon">o</div>
+              <p className="flex justify-center items-center">Logout</p>
+            </div>
           </li>
         </ul>
       ) : (
-        <ul>
+        <ul className="">
           <li>
             <Link to="/login">
               <div className="navlist">
@@ -74,8 +76,8 @@ const Nav = () => {
                 <p className="flex justify-center items-center">Login</p>
               </div>
             </Link>
-            </li>
-            <li>
+          </li>
+          <li>
             <Link to="/register">
               <div className="navlist">
                 <div className="icon">o</div>

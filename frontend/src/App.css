@@ -6,6 +6,7 @@
 
 body {
   font-family: "Courier New", Courier, monospace;
+  height: 100vh;
 }
 
 /* Typography Styles */
@@ -90,10 +91,11 @@ body {
     justify-content: start;
     align-items: center;
     padding-top: 100px;
-    transition: all 5000ms ease-in;
+    transition: left 500ms ease-in;
   }
   .navbar-hide {
     left: -500px;
+    transition: left 500ms ease-in;
   }
   .navbar li {
     width: 200px;
