@@ -25,7 +25,7 @@ const Nav = () => {
     }
   }, []);
   return (
-    <nav className={`${auth ? 'nav' : 'hidden'}`}>
+    <nav className={`${auth ? "nav" : "hidden"}`}>
       <div className="logo-btn">
         <span className="logo">o</span>
       </div>
@@ -79,6 +79,14 @@ const Nav = () => {
           </li>
           <li>
             <Link to="/register">
+              <div className="navlist">
+                <div className="icon">o</div>
+                <p className="flex justify-center items-center">Sign up</p>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/register2">
               <div className="navlist">
                 <div className="icon">o</div>
                 <p className="flex justify-center items-center">Sign up</p>
