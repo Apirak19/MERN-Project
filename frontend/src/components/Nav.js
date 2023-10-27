@@ -84,7 +84,8 @@ const Nav = () => {
                 <p className="flex justify-center items-center">Sign up</p>
               </div>
             </Link>
-          </li>
+            </li>
+            <p>test</p>
         </ul>
       )}
     </nav>
