@@ -85,14 +85,6 @@ const Nav = () => {
               </div>
             </Link>
           </li>
-          <li>
-            <Link to="/register2">
-              <div className="navlist">
-                <div className="icon">o</div>
-                <p className="flex justify-center items-center">Sign up</p>
-              </div>
-            </Link>
-          </li>
         </ul>
       )}
     </nav>
