@@ -36,7 +36,6 @@ const Products = () => {
     <div className="page">
       <h1 className="title">Products List</h1>
       <div className="products-list-lg">
-
         {products.map((item, index) => {
           return (
             <Card sx={{ maxWidth: "500px", margin: "20px" }}>
@@ -62,7 +61,7 @@ const Products = () => {
                     </Chip>
                   }
                 >
-                  {index + 1}
+                  No. {index + 1}
                 </Typography>
                 <Typography level="body-xs">{item.category}</Typography>
                 <Link
