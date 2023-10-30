@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Card from "@mui/joy/Card";
+import CardOverflow from "@mui/joy/CardOverflow";
+import CardCover from "@mui/joy/CardCover";
+import CardContent from "@mui/joy/CardContent";
+import AspectRatio from "@mui/joy/AspectRatio";
+import Link from "@mui/joy/Link";
+import Button from "@mui/joy/Button";
+import Chip from "@mui/joy/Chip";
+import Typography from "@mui/joy/Typography";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -27,82 +36,68 @@ const Products = () => {
     <div className="page">
       <h1 className="title">Products List</h1>
       <div className="products-list-lg">
-        <ul className="productHead">
-          <li>No.</li>
-          <li>ID</li>
-          <li>Name</li>
-          <li>Price</li>
-          <li>Category</li>
-          <li>Company</li>
-          <li>operation</li>
-        </ul>
+
         {products.map((item, index) => {
           return (
-            <ul className="productData" key={item.name}>
-              <li>{index + 1}</li>
-              <li>{item._id}</li>
-              <li>{item.name}</li>
-              <li>{item.price}</li>
-              <li>{item.category}</li>
-              <li>{item.company}</li>
-              <li>
-                <button
-                  className="productDel"
+            <Card sx={{ maxWidth: "500px", margin: "20px" }}>
+              <CardOverflow>
+                <AspectRatio>
+                  <img
+                    src="https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822_1280.jpg"
+                    alt=""
+                  />
+                </AspectRatio>
+              </CardOverflow>
+              <CardContent>
+                <Typography
+                  level="body-xs"
+                  endDecorator={
+                    <Chip
+                      component="span"
+                      size="sm"
+                      variant="soft"
+                      color="neutral"
+                    >
+                      ID: {item._id}
+                    </Chip>
+                  }
+                >
+                  {index + 1}
+                </Typography>
+                <Typography level="body-xs">{item.category}</Typography>
+                <Link
+                  href="#product-name"
+                  fontWeight="lg"
+                  color="neutral"
+                  textColor="text.primary"
+                >
+                  {item.name}
+                </Link>
+                <Link
+                  href="#product-company"
+                  fontWeight="sm"
+                  color="neutral"
+                  textColor="text.primary"
+                >
+                  {item.company}
+                </Link>
+                <Typography level="title-lg" sx={{ mt: 1, fontWeight: "xl" }}>
+                  {item.price}
+                </Typography>
+              </CardContent>
+              <CardOverflow>
+                <Button
+                  variant="solid"
+                  color="danger"
+                  size="lg"
                   onClick={() => {
                     deleteProduct(item._id);
                   }}
                 >
-                  delete
-                </button>
-              </li>
-            </ul>
-          );
-        })}
-      </div>
-      <div className="products-list-md">
-        {products.map((item, index) => {
-          return (
-            <div>
-              <ul className="productData border-4" key={item.name}>
-                <div className="productCell">
-                  <li className="tableHead">No.</li>
-                  <li className="tableData">{index + 1}</li>
-                </div>
-                <div className="productCell">
-                  <li className="tableHead">ID</li>
-                  <li className="tableData">{item._id}</li>
-                </div>
-                <div className="productCell">
-                  <li className="tableHead">Name</li>
-                  <li className="tableData">{item.name}</li>
-                </div>
-                <div className="productCell">
-                  <li className="tableHead">Price</li>
-                  <li className="tableData">{item.price}</li>
-                </div>
-                <div className="productCell">
-                  <li className="tableHead">Category</li>
-                  <li className="tableData">{item.category}</li>
-                </div>
-                <div className="productCell">
-                  <li className="tableHead">Company</li>
-                  <li className="tableData">{item.company}</li>
-                </div>
-                <div className="productCell">
-                  <li className="tableHead">operation</li>
-                  <li className="tableData">
-                    <button
-                      className="productDel"
-                      onClick={() => {
-                        deleteProduct(item._id);
-                      }}
-                    >
-                      delete
-                    </button>
-                  </li>
-                </div>
-              </ul>
-            </div>
+                  Delete
+                </Button>
+              </CardOverflow>
+            </Card>
           );
         })}
       </div>
