@@ -92,12 +92,14 @@ const Nav = () => {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      spacing={1}
+      spacing={2}
     >
-      <Grid item xs={6} md={8}>
-        <Typography variant="h1">Logo</Typography>
+      <Grid item xs={1} md={3}>
+        <Typography variant="h1" textAlign={"center"}>
+          Logo
+        </Typography>
       </Grid>
-      <Grid>
+      <Grid item xs={1} md={3} textAlign={"center"}>
         <Button variant="contained">
           <Link to="/login">
             <div className="navlist">
@@ -105,19 +107,19 @@ const Nav = () => {
             </div>
           </Link>
         </Button>
-        <Button variant="outlined">
+      </Grid>
+      <Grid item xs={1} md={3} textAlign={"center"}>
+        <Button variant="contained">
           <Link to="/register">
             <div className="navlist">
               <p className="flex justify-center items-center">Register</p>
             </div>
           </Link>
         </Button>
-        <Button variant="outlined">
-          <Link to="/register">
-            <div className="navlist">
-              <p className="flex justify-center items-center">Register</p>
-            </div>
-          </Link>
+      </Grid>
+      <Grid item xs={1} md={3} textAlign={"center"}>
+        <Button variant="contained" onClick={handleLogout}>
+          Logout
         </Button>
       </Grid>
     </Grid>
