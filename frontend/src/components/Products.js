@@ -11,6 +11,7 @@ import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 
 const Products = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   useEffect(() => {
     getProducts();
@@ -24,7 +25,6 @@ const Products = () => {
   console.log(products);
   const deleteProduct = async (id) => {
     if (window.confirm("Delete the product?")) {
-      
       let result = await fetch(`http://localhost:5000/product/${id}`, {
         method: "delete",
       });
@@ -34,7 +34,7 @@ const Products = () => {
         getProducts();
       }
     } else {
-      alert("delete cancled")
+      alert("delete cancled");
     }
   };
   return (
@@ -89,9 +89,23 @@ const Products = () => {
                   {item.price}
                 </Typography>
               </CardContent>
-              <CardContent sx={{display: "grid", gridTemplateColumns: "repeat(2, minmax(80px, 1fr))"}}>
-
-              </CardContent>
+              <CardContent
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(2, minmax(80px, 1fr))",
+                  gap: "1.5",
+                }}
+              >
+                <Button
+                  variant="solid"
+                  color="primary"
+                  size="lg"
+                  onClick={() => {
+                    navigate("/edit");
+                  }}
+                >
+                  Update
+                </Button>
                 <Button
                   variant="solid"
                   color="danger"
@@ -102,7 +116,7 @@ const Products = () => {
                 >
                   Delete
                 </Button>
-              
+              </CardContent>
             </Card>
           );
         })}
