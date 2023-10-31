@@ -43,7 +43,7 @@ const Products = () => {
       <div className="products-list-lg">
         {products.map((item, index) => {
           return (
-            <Card sx={{ maxWidth: "500px", margin: "20px" }}>
+            <Card sx={{ maxWidth: "500px", margin: "20px" }} key={item._id}>
               <CardOverflow>
                 <AspectRatio>
                   <img
@@ -101,7 +101,7 @@ const Products = () => {
                   color="primary"
                   size="lg"
                   onClick={() => {
-                    navigate("/edit");
+                    navigate(`/edit/${item._id}`);
                   }}
                 >
                   Update

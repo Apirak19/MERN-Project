@@ -8,6 +8,7 @@ import PrivateComponent from "./components/PrivateComponent";
 import { AuthContextProvider } from "./contexts/context";
 import Products from "./components/Products";
 import AddProduct from "./components/AddProduct";
+import UpdateProduct from "./components/UpdateProduct";
 
 function App() {
   return (
@@ -19,10 +20,7 @@ function App() {
             <Route path="" element={<PrivateComponent />}>
               <Route path="/" element={<Products />} />
               <Route path="/add" element={<AddProduct />} />
-              <Route
-                path="/edit"
-                element={<h1 className="text-2xl">Edit Product</h1>}
-              />
+              <Route path="/edit/:id" element={<UpdateProduct />} />
               <Route
                 path="/profile"
                 element={<h1 className="text-2xl">Profile</h1>}
