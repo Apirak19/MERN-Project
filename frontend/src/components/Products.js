@@ -23,13 +23,18 @@ const Products = () => {
   };
   console.log(products);
   const deleteProduct = async (id) => {
-    let result = await fetch(`http://localhost:5000/product/${id}`, {
-      method: "delete",
-    });
-    result = await result.json();
-    if (result) {
-      alert("record was deleted");
-      getProducts();
+    if (window.confirm("Delete the product?")) {
+      
+      let result = await fetch(`http://localhost:5000/product/${id}`, {
+        method: "delete",
+      });
+      result = await result.json();
+      if (result) {
+        alert("record was deleted");
+        getProducts();
+      }
+    } else {
+      alert("delete cancled")
     }
   };
   return (
@@ -84,7 +89,9 @@ const Products = () => {
                   {item.price}
                 </Typography>
               </CardContent>
-              <CardOverflow>
+              <CardContent sx={{display: "grid", gridTemplateColumns: "repeat(2, minmax(80px, 1fr))"}}>
+
+              </CardContent>
                 <Button
                   variant="solid"
                   color="danger"
@@ -95,7 +102,7 @@ const Products = () => {
                 >
                   Delete
                 </Button>
-              </CardOverflow>
+              
             </Card>
           );
         })}

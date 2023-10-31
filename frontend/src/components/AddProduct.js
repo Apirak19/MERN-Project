@@ -7,7 +7,6 @@ import CardContent from "@mui/joy/CardContent";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Link from "@mui/joy/Link";
 import Button from "@mui/joy/Button";
-import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 import InfoOutlined from "@mui/icons-material/InfoOutlined";
 import Divider from "@mui/joy/Divider";
@@ -15,8 +14,6 @@ import FormControl from "@mui/joy/FormControl";
 import FormLabel from "@mui/joy/FormLabel";
 import Input from "@mui/joy/Input";
 import CardActions from "@mui/joy/CardActions";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import Checkbox from "@mui/joy/Checkbox";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -109,7 +106,7 @@ const AddProduct = () => {
             />
           </FormControl>
           <CardActions sx={{ gridColumn: "1/-1" }}>
-            <Button variant="solid" color="success">
+            <Button variant="solid" color="success" onClick={addProduct}>
               Add product
             </Button>
           </CardActions>
