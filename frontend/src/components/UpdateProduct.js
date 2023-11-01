@@ -18,20 +18,25 @@ const UpdateProduct = () => {
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [company, setCompany] = useState("");
-  const userID = JSON.parse(localStorage.getItem("user"))._id;
+  const [userId, setUserId] = useState('')
   const navigate = useNavigate();
 
   const getProductDetail = async () => {
-    const result = await fetch(`http://localhost:5000/product/${params.id}`);
+    let result = await fetch(`http://localhost:5000/product/${params.id}`);
     result = await result.json();
-    console.log(result);
-  };
-  const updateProduct = () => {
-    console.log(name, price, company, category);
+    console.warn(result);
+    setName(result.name)
+    setPrice(result.price)
+    setCategory(result.category)
+    setCompany(result.company)
+    setUserId(result._id)
   };
 
+  // const updateProduct = () => {
+  //   console.log(name, price, company, category);
+  // };
+
   useEffect(() => {
-    console.log(params);
     getProductDetail();
   }, []);
 
@@ -63,7 +68,7 @@ const UpdateProduct = () => {
         >
           <FormControl sx={{ gridColumn: "1/-1" }}>
             <FormLabel>User ID</FormLabel>
-            <Input value={userID} />
+            <Input value={userId}/>
           </FormControl>
           <FormControl sx={{ gridColumn: "1/-1" }}>
             <FormLabel>Category</FormLabel>
@@ -102,7 +107,7 @@ const UpdateProduct = () => {
             />
           </FormControl>
           <CardActions sx={{ gridColumn: "1/-1" }}>
-            <Button variant="solid" color="success" onClick={updateProduct}>
+            <Button variant="solid" color="success" onClick={()=>{}}>
               Add product
             </Button>
           </CardActions>
