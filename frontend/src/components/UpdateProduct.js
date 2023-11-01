@@ -12,7 +12,7 @@ import Input from "@mui/joy/Input";
 import CardActions from "@mui/joy/CardActions";
 
 const UpdateProduct = () => {
-   const params = useParams()
+  const params = useParams();
   const [products, setProducts] = useState([]);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
@@ -20,12 +20,19 @@ const UpdateProduct = () => {
   const [company, setCompany] = useState("");
   const userID = JSON.parse(localStorage.getItem("user"))._id;
   const navigate = useNavigate();
+
+  const getProductDetail = async () => {
+    const result = await fetch(`http://localhost:5000/product/${params.id}`);
+    result = await result.json();
+    console.log(result);
+  };
   const updateProduct = () => {
     console.log(name, price, company, category);
   };
- 
+
   useEffect(() => {
     console.log(params);
+    getProductDetail();
   }, []);
 
   return (
