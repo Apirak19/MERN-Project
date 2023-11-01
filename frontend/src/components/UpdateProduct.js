@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import Button from "@mui/joy/Button";
@@ -18,23 +18,32 @@ const UpdateProduct = () => {
   const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [company, setCompany] = useState("");
-  const [userId, setUserId] = useState('')
+  const [userId, setUserId] = useState("");
   const navigate = useNavigate();
 
   const getProductDetail = async () => {
     let result = await fetch(`http://localhost:5000/product/${params.id}`);
     result = await result.json();
     console.warn(result);
-    setName(result.name)
-    setPrice(result.price)
-    setCategory(result.category)
-    setCompany(result.company)
-    setUserId(result._id)
+    setName(result.name);
+    setPrice(result.price);
+    setCategory(result.category);
+    setCompany(result.company);
+    setUserId(result._id);
   };
 
-  // const updateProduct = () => {
-  //   console.log(name, price, company, category);
-  // };
+  const updateProduct = async () => {
+    const result = await fetch(`http://localhost:5000/product/${params.id}`, {
+      method: "Put",
+      body: JSON.stringify({ name, price, category, company }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
+    console.log("update: ", result);
+    console.log("after navigate");
+  };
 
   useEffect(() => {
     getProductDetail();
@@ -68,7 +77,7 @@ const UpdateProduct = () => {
         >
           <FormControl sx={{ gridColumn: "1/-1" }}>
             <FormLabel>User ID</FormLabel>
-            <Input value={userId}/>
+            <Input value={userId} />
           </FormControl>
           <FormControl sx={{ gridColumn: "1/-1" }}>
             <FormLabel>Category</FormLabel>
@@ -107,9 +116,11 @@ const UpdateProduct = () => {
             />
           </FormControl>
           <CardActions sx={{ gridColumn: "1/-1" }}>
-            <Button variant="solid" color="success" onClick={()=>{}}>
-              Add product
-            </Button>
+            <Link to={"/"}>
+              <Button variant="solid" color="success" onClick={updateProduct}>
+                Complete
+              </Button>
+            </Link>
           </CardActions>
         </CardContent>
       </Card>
