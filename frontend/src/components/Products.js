@@ -24,7 +24,11 @@ const Products = () => {
     result = await result.json();
     setProducts(result);
   };
-  console.log(products);
+
+  const searchProduct = async (e) => {
+  console.warn(e.target.value);
+}
+
   const deleteProduct = async (id) => {
     if (window.confirm("Delete the product?")) {
       let result = await fetch(`http://localhost:5000/product/${id}`, {
@@ -42,7 +46,7 @@ const Products = () => {
   return (
     <div className="page">
       <h1 className="title">Products List</h1>
-      <Input type="text" placeholder="search product" sx={{width: "300px"}}/>
+      <Input type="text" placeholder="search product" sx={{width: "300px"}} onChange={searchProduct}/>
       <div className="products-list-lg">
         {products.map((item, index) => {
           return (
