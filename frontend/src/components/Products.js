@@ -9,6 +9,8 @@ import Link from "@mui/joy/Link";
 import Button from "@mui/joy/Button";
 import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
+import Input from "@mui/joy/Input";
+
 
 const Products = () => {
   const navigate = useNavigate();
@@ -40,6 +42,7 @@ const Products = () => {
   return (
     <div className="page">
       <h1 className="title">Products List</h1>
+      <Input type="text" placeholder="search product" sx={{width: "300px"}}/>
       <div className="products-list-lg">
         {products.map((item, index) => {
           return (
