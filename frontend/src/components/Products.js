@@ -11,7 +11,6 @@ import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 import Input from "@mui/joy/Input";
 
-
 const Products = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -26,15 +25,17 @@ const Products = () => {
   };
 
   const searchProduct = async (e) => {
-    let key = e.target.value
-    let result = await fetch(`http://localhost:5000/search/${key}`)
-    result = await result.json()
+    let key = e.target.value;
     if (key) {
-      setProducts(result)
+      let result = await fetch(`http://localhost:5000/search/${key}`);
+      result = await result.json();
+      if (result) {
+        setProducts(result);
+      }
     } else {
       getProducts()
     }
-}
+  };
 
   const deleteProduct = async (id) => {
     if (window.confirm("Delete the product?")) {
@@ -53,9 +54,14 @@ const Products = () => {
   return (
     <div className="page">
       <h1 className="title">Products List</h1>
-      <Input type="text" placeholder="search product" sx={{width: "300px"}} onChange={searchProduct}/>
+      <Input
+        type="text"
+        placeholder="search product"
+        sx={{ width: "300px" }}
+        onChange={searchProduct}
+      />
       <div className="products-list-lg">
-        {products.map((item, index) => {
+        {products.length>0 ? products.map((item, index) => {
           return (
             <Card sx={{ maxWidth: "500px", margin: "20px" }} key={item._id}>
               <CardOverflow>
@@ -133,7 +139,7 @@ const Products = () => {
               </CardContent>
             </Card>
           );
-        })}
+        }): <h1>No product found</h1>}
       </div>
     </div>
   );

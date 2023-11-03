@@ -71,11 +71,11 @@ app.get("/search/:key", async (req, res) => {
     "$or": [
       { name: { $regex: req.params.key } },
       { company: { $regex: req.params.key } },
-      {category: {$regex: req.params.key}}
+      { category: { $regex: req.params.key } }
     ]
-  })
-  res.send(result)
-})
+  });
+  res.send(result);
+});
 
 app.listen(5000, (err) => {
   if (err) {
