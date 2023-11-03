@@ -29,7 +29,11 @@ const Products = () => {
     let key = e.target.value
     let result = await fetch(`http://localhost:5000/search/${key}`)
     result = await result.json()
-    console.warn(result);
+    if (key) {
+      setProducts(result)
+    } else {
+      getProducts()
+    }
 }
 
   const deleteProduct = async (id) => {
