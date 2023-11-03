@@ -139,7 +139,7 @@ const Products = () => {
               </CardContent>
             </Card>
           );
-        }): <h1>No product found</h1>}
+        }): <h1>No product found <span>Icon</span></h1>}
       </div>
     </div>
   );
