@@ -132,6 +132,7 @@ const Products = () => {
                   size="lg"
                   onClick={() => {
                     deleteProduct(item._id);
+                    console.log("text");
                   }}
                 >
                   Delete
