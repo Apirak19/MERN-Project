@@ -136,7 +136,6 @@ const Products = () => {
                 >
                   Delete
                 </Button>
-                <h1>something to be cut</h1>
               </CardContent>
             </Card>
           );
