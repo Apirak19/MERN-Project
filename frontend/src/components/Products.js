@@ -134,7 +134,7 @@ const Products = () => {
                     deleteProduct(item._id);
                   }}
                 >
-                  Delete product
+                  Delete
                 </Button>
               </CardContent>
             </Card>
