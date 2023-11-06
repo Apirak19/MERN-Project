@@ -36,8 +36,9 @@ const Nav = () => {
     >
       <Grid item xs={1} md={3}>
         <Typography variant="h1" textAlign={"center"}>
-          Logo
+          Logo 
         </Typography>
+        <p className="float-right">Good morning, { JSON.parse(auth).name}</p>
       </Grid>
       {auth ? (
         <Grid item xs={1} md={9} textAlign={"center"}>

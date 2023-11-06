@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { UseAuthContext } from "../contexts/context";
 
 const Login = () => {
-  // const auth = localStorage.getItem("user");
   const { setEmail, email, setPassword, password, loading, setLoading } =
-    UseAuthContext();
+  UseAuthContext();
   const navigate = useNavigate();
   const handleLogin = async () => {
+    const auth = localStorage.getItem("user");
     setLoading(true);
 
     let result = await fetch("http://localhost:5000/login", {
@@ -20,8 +20,8 @@ const Login = () => {
     setLoading(true);
     result = await result.json();
     console.log(result);
-    if (result.auth) {
-      localStorage.setItem("user", JSON.stringify(result.user));
+    if (result.name) {
+      localStorage.setItem("user", JSON.stringify(result));
       localStorage.setItem("token", JSON.stringify(result.auth));
       navigate("/");
     } else {
