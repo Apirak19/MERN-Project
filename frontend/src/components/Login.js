@@ -19,8 +19,8 @@ const Login = () => {
       });
       setLoading(true);
       result = await result.json();
-      if (result.name) {
-        localStorage.setItem("user", JSON.stringify(result));
+      if (result.auth) {
+        localStorage.setItem("user", JSON.stringify(result.user));
         navigate("/");
       }
     } catch (err) {
