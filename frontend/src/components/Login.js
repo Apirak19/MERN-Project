@@ -3,31 +3,33 @@ import { useNavigate } from "react-router-dom";
 import { UseAuthContext } from "../contexts/context";
 
 const Login = () => {
-  const auth = localStorage.getItem("user");
+  // const auth = localStorage.getItem("user");
   const { setEmail, email, setPassword, password, loading, setLoading } =
     UseAuthContext();
   const navigate = useNavigate();
   const handleLogin = async () => {
     setLoading(true);
-    try {
-      let result = await fetch("http://localhost:5000/login", {
-        method: "post",
-        body: JSON.stringify({ email, password }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      setLoading(true);
-      result = await result.json();
-      if (result.auth) {
-        localStorage.setItem("user", JSON.stringify(result.user));
-        navigate("/");
-      }
-    } catch (err) {
+
+    let result = await fetch("http://localhost:5000/login", {
+      method: "post",
+      body: JSON.stringify({ email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    setLoading(true);
+    result = await result.json();
+    console.log(result);
+    if (result.auth) {
+      localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("token", JSON.stringify(result.auth));
+      navigate("/");
+    } else {
       alert("please enter correct data");
-    } finally {
-      setLoading(false);
     }
+    // finally {
+    //   setLoading(false);
+    // }
   };
 
   return (

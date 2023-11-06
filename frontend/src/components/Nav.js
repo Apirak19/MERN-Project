@@ -24,55 +24,7 @@ const Nav = () => {
   }, []);
 
   return (
-    // <nav className={`${auth ? "nav" : "hidden"}`}>
-    //   <div className="logo-btn">
-    //     <span className="logo">o</span>
-    //   </div>
-    //   <div className="menu-btn h-20 inline-block fixed right-0">
-    //     <span className="menu" onClick={(e) => setNavHidden(!navHidden)}>
-    //       Menu
-    //     </span>
-    //   </div>
-    //   {auth ? (
-    //     <ul className={`navbar ${navHidden ? "navbar-hide" : ""}`}>
-    //       <li>
-
-    //       </li>
-    //       <li>
-
-    //       </li>
-    //       <li>
-
-    //       </li>
-    //       <li onClick={handleLogout} className="cursor-pointer">
-    //         <div className="navlist">
-    //           <div className="icon">o</div>
-    //           <p className="flex justify-center items-center">Logout</p>
-    //         </div>
-    //       </li>
-    //     </ul>
-    //   ) : (
-    //     <ul className="">
-    //       <li>
-    //         <Link to="/login">
-    //           <div className="navlist">
-    //             <div className="icon">o</div>
-    //             <p className="flex justify-center items-center">Login</p>
-    //           </div>
-    //         </Link>
-    //       </li>
-    //       <li>
-    //         <Link to="/register">
-    //           <div className="navlist">
-    //             <div className="icon">o</div>
-    //             <p className="flex justify-center items-center">Sign up</p>
-    //           </div>
-    //         </Link>
-    //         </li>
-    //         <p>test</p>
-    //     </ul>
-    //   )}
-    // </nav>
+   
     <Grid
       className=""
       container
