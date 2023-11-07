@@ -1,0 +1,36 @@
+There are number of auth method, which includes 
+1) JWT
+2) OAuth
+3) 
+
+1. Factor-based Authentication:
+- Single-Factor Authentication: Requires only one type of authentication factor (e.g., password-only authentication).
+- Multi-Factor Authentication (MFA): Requires two or more different types of authentication factors (e.g., password + fingerprint, or password + SMS code).
+2. Authentication Factors:
+- Something You Know: Knowledge-based factors like passwords, PINs, or security questions.
+- Something You Have: Possession-based factors like physical tokens, smart cards, or mobile devices.
+- Something You Are: Biometric factors like fingerprints, retina scans, facial recognition, or voice recognition.
+
+3. Authentication Methods:
+- Password-based Authentication: Relies on a user's knowledge of a secret password.
+- Biometric Authentication: Uses unique physical or behavioral characteristics for identification.
+- Token-based Authentication: Relies on physical or digital tokens to generate authentication codes.
+- Certificate-based Authentication: Uses digital certificates to verify the authenticity of a user or device.
+- Social Media Authentication: Allows users to log in using their social media credentials.
+- Knowledge-based Authentication: Involves answering security questions or providing specific personal information.
+4. Context-based Authentication:
+- Static Context Authentication: Considers fixed attributes such as IP address or device type.
+- Dynamic Context Authentication: Considers real-time attributes like geolocation, time of access, or user behavior.
+5. Security Level:
+- Low Assurance Authentication: Basic authentication methods with limited security measures.
+- Medium Assurance Authentication: Incorporates additional security factors but may not be foolproof.
+- High Assurance Authentication: Utilizes highly secure methods like strong cryptographic techniques or multiple advanced factors.
+
+6. User Experience:
+- Convenient Authentication: Focuses on ease of use, allowing users to log in quickly.
+- Secure Authentication: Prioritizes security, even if it means slightly inconveniencing the user with additional steps.
+
+7. Implementation:
+- Centralized Authentication: Authentication is managed centrally, providing a single point of authentication for multiple applications.
+- Decentralized Authentication: Each application or service manages its own authentication process independently.
+
